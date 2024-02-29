@@ -22,7 +22,7 @@ public class Hdd {
 
     @Override
     public String toString() {
-        return "Hdd [nameHdd=" + nameHdd + ", volumeHdd=" + volumeHdd + "]";
+        return " ЖД: " + nameHdd + " " + volumeHdd + "Гб";
     }
 
     @Override

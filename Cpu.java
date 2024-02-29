@@ -1,18 +1,18 @@
 public class Cpu {
 
-    private int nameCpu;
+    private String nameCpu;
     private int frequencyСpu;
     
-    public Cpu(int nameCpu, int frequencyСpu) {
+    public Cpu(String nameCpu, int frequencyСpu) {
         this.nameCpu = nameCpu;
         this.frequencyСpu = frequencyСpu;
     }
 
-    public int getNameCpu() {
+    public String getNameCpu() {
         return nameCpu;
     }
 
-    public void setNameCpu(int nameCpu) {
+    public void setNameCpu(String nameCpu) {
         this.nameCpu = nameCpu;
     }
 
@@ -26,14 +26,14 @@ public class Cpu {
 
     @Override
     public String toString() {
-        return "Cpu [nameCpu=" + nameCpu + ", frequencyСpu=" + frequencyСpu + "]";
+        return "Процессор: " + nameCpu + " " + frequencyСpu + "МГц";
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + nameCpu;
+        result = prime * result + ((nameCpu == null) ? 0 : nameCpu.hashCode());
         result = prime * result + frequencyСpu;
         return result;
     }
@@ -47,11 +47,15 @@ public class Cpu {
         if (getClass() != obj.getClass())
             return false;
         Cpu other = (Cpu) obj;
-        if (nameCpu != other.nameCpu)
+        if (nameCpu == null) {
+            if (other.nameCpu != null)
+                return false;
+        } else if (!nameCpu.equals(other.nameCpu))
             return false;
         if (frequencyСpu != other.frequencyСpu)
             return false;
         return true;
     }
+
     
 }

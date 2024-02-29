@@ -25,9 +25,9 @@ public class Ram {
 
     @Override
     public String toString() {
-        return "Ram [nameRam=" + nameRam + ", volumeRam=" + volumeRam + "]";
+        return "Память: " + nameRam + " " + volumeRam + "Гб";
     }
-
+  
     @Override
     public int hashCode() {
         final int prime = 31;

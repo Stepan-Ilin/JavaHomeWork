@@ -66,8 +66,8 @@ public class Notebook {
 
     @Override
     public String toString() {
-        return "Notebook [name=" + name + ", cpu=" + cpu + ", ram=" + ram + ", hdd=" + hdd + ", os=" + os + ", color="
-                + color + "]";
+        return "Notebook " + name + " (" + cpu +", " + ram + "," + hdd + ", ОС: " + os + ", Цвет: "
+                + color + ")";
     }
 
     @Override
