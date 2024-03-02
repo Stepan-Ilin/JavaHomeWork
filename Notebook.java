@@ -1,3 +1,6 @@
+
+import java.util.Map;
+
 public class Notebook {
 
     private String name;
@@ -14,6 +17,9 @@ public class Notebook {
         this.os = os;
         this.color = color;
         this.name = name;
+    }
+
+    public Notebook() {
     }
 
     public String getName() {
@@ -66,7 +72,7 @@ public class Notebook {
 
     @Override
     public String toString() {
-        return "Notebook " + name + " (" + cpu +", " + ram + "," + hdd + ", ОС: " + os + ", Цвет: "
+        return "Notebook " + name + " (" + cpu + ", " + ram + "," + hdd + ", ОС: " + os + ", Цвет: "
                 + color + ")";
     }
 
@@ -124,5 +130,58 @@ public class Notebook {
             return false;
         return true;
     }
-    
+
+
+    public boolean isPassOnCriterias(Map <String, Object> criterias){
+        String valueCriteriaString;
+        Integer valueCriteriaInteger;
+        
+        valueCriteriaString = (String) criterias.get("color");
+        if(valueCriteriaString != null){            
+            if(!valueCriteriaString.equals(color))
+                return false;
+        }
+        valueCriteriaString = (String) criterias.get("os");
+        if(valueCriteriaString != null){            
+            if(!valueCriteriaString.equals(os))
+                return false;
+        }
+        valueCriteriaString = (String) criterias.get("name");
+        if(valueCriteriaString != null){            
+            if(!valueCriteriaString.equals(name))
+                return false;
+        }
+        valueCriteriaString = (String) criterias.get("nameCpu");
+        if(valueCriteriaString != null){            
+            if(!valueCriteriaString.equals(cpu.getNameCpu()))
+                return false;
+        }    
+        valueCriteriaString = (String) criterias.get("nameHdd");
+        if(valueCriteriaString != null){            
+            if(!valueCriteriaString.equals(hdd.getNameHdd()))
+                return false;
+        }
+        valueCriteriaString = (String) criterias.get("nameRam");
+        if(valueCriteriaString != null){            
+            if(!valueCriteriaString.equals(ram.getNameRam()))
+                return false;
+        }
+        valueCriteriaInteger = (Integer) criterias.get("volumeRam");
+        if(valueCriteriaInteger != null){            
+            if(valueCriteriaInteger > ram.getVolumeRam())
+                return false;
+        }
+        valueCriteriaInteger = (Integer) criterias.get("volumeHdd");
+        if(valueCriteriaInteger != null){            
+            if(valueCriteriaInteger > hdd.getVolumeHdd())
+                return false;
+        }
+        valueCriteriaInteger = (Integer) criterias.get("frequencyСpu");
+        if(valueCriteriaInteger != null){            
+            if(valueCriteriaInteger > cpu.getFrequencyСpu())
+                return false;
+        }
+        
+        return true;
+    }
 }
