@@ -132,7 +132,7 @@ public class Notebook {
     }
 
 
-    public boolean isPassOnCriterias(Map <String, Object> criterias){
+    public boolean isPassOnCriterias(Map <String, String> criterias){
         String valueCriteriaString;
         Integer valueCriteriaInteger;
         
@@ -166,18 +166,21 @@ public class Notebook {
             if(!valueCriteriaString.equals(ram.getNameRam()))
                 return false;
         }
-        valueCriteriaInteger = (Integer) criterias.get("volumeRam");
-        if(valueCriteriaInteger != null){            
+        
+        if(criterias.get("volumeRam") != null){
+            valueCriteriaInteger = Integer.valueOf((String) criterias.get("volumeRam"));            
             if(valueCriteriaInteger > ram.getVolumeRam())
                 return false;
         }
-        valueCriteriaInteger = (Integer) criterias.get("volumeHdd");
-        if(valueCriteriaInteger != null){            
+  
+        if(criterias.get("volumeHdd") != null){ 
+            valueCriteriaInteger = Integer.valueOf((String) criterias.get("volumeHdd"));           
             if(valueCriteriaInteger > hdd.getVolumeHdd())
                 return false;
         }
-        valueCriteriaInteger = (Integer) criterias.get("frequencyСpu");
-        if(valueCriteriaInteger != null){            
+                
+        if(criterias.get("frequencyСpu") != null){
+            valueCriteriaInteger = Integer.valueOf((String) criterias.get("frequencyСpu"));            
             if(valueCriteriaInteger > cpu.getFrequencyСpu())
                 return false;
         }
